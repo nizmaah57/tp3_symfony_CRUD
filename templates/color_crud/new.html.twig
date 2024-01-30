@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle couleur{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle couleur</h1>
+
+    {{ include('color_crud/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('app_color_crud_index') }}">Retour à la liste</a>
+{% endblock %}

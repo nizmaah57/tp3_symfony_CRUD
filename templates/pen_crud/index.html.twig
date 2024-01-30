@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des stylos{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>Liste des stylos</h1>
+
+                </br>
+                <a class="btn btn-primary" href="{{ path('app_pen_crud_new') }}">Créer un nouveau stylo</a>
+                <a class="btn btn-secondary" href="{{ path('app_admin_dashboard') }}">Retour au dashboard</a>
+                <br/>
+                <br/>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th>Description</th>
+                            <th>Référence</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for pen in pens %}
+                        <tr>
+                            <td>{{ pen.id }}</td>
+                            <td>{{ pen.name }}</td>
+                            <td>{{ pen.price }}</td>
+                            <td>{{ pen.description }}</td>
+                            <td>{{ pen.ref }}</td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-info" href="{{ path('app_pen_crud_show', {'id': pen.id}) }}">Détails</a>
+                                    <a class="btn btn-warning" href="{{ path('app_pen_crud_edit', {'id': pen.id}) }}">Modifier</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">Aucun enregistrement trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

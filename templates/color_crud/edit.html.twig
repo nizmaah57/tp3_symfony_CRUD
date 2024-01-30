@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une couleur{% endblock %}
+
+{% block body %}
+    <h1>Modifier une couleur</h1>
+
+    {{ include('color_crud/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('app_color_crud_index') }}">Retour à la liste</a>
+
+    {{ include('color_crud/_delete_form.html.twig') }}
+{% endblock %}

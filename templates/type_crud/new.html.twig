@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau type{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau type</h1>
+
+    {{ include('type_crud/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('app_type_crud_index') }}">Retour à la liste</a>
+{% endblock %}

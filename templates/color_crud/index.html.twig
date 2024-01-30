@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Color index{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Liste des couleurs</h1>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for color in colors %}
+                <tr>
+                    <td>{{ color.id }}</td>
+                    <td>{{ color.name }}</td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-info" href="{{ path('app_color_crud_show', {'id': color.id}) }}">Détails</a>
+                            <a class="btn btn-warning" href="{{ path('app_color_crud_edit', {'id': color.id}) }}">Modifier</a>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="{{ path('app_color_crud_new') }}">Créer une nouvelle couleur</a>
+        <br/>
+        <a class="btn btn-secondary" href="{{ path('app_admin_dashboard') }}">Retour au dashboard</a>
+    </div>
+{% endblock %}

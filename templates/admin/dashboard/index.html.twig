@@ -1,0 +1,27 @@
+{# admin/dashboard/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord administrateur{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Bienvenue dans votre tableau de bord administrateur !</h1>
+
+        <br/>
+
+        <ul class="list-group list-unstyled">
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_pen_crud_index') }}">Accéder à la liste des stylos</a></li>
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_color_crud_index') }}">Accéder à la liste des couleurs</a></li>
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_brand_crud_index') }}">Accéder à la liste des marques</a></li>
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_type_crud_index') }}">Accéder à la liste des types</a></li>
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_material_crud_index') }}">Accéder à la liste des matières</a></li>
+
+                
+                <li class="list-group-item"><a class="btn btn-secondary btn-lg active" href="{{ path('app_user_crud_index') }}">Accéder à la liste des utilisateurs</a></li>
+        
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}

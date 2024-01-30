@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type{% endblock %}
+
+{% block body %}
+    <h1>Type</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ type.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_type_crud_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-warning" href="{{ path('app_type_crud_edit', {'id': type.id}) }}">Modifier</a>
+
+
+    {{ include('type_crud/_delete_form.html.twig') }}
+{% endblock %}

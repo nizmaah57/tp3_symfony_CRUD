@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle matière{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle matière</h1>
+
+    {{ include('material_crud/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('app_material_crud_index') }}">Retour à la liste</a>
+
+{% endblock %}
